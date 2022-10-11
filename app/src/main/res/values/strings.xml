@@ -1,0 +1,4 @@
+<resources>
+  <string name="app_name">Maps Application</string>
+  <string name="current_position">Current Position</string>
+</resources>
