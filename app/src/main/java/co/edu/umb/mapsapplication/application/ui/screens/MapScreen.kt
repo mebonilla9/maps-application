@@ -1,6 +1,7 @@
 package co.edu.umb.mapsapplication.application.ui.screens
 
 import android.location.Location
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -8,7 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color.Companion.Black
-import androidx.compose.ui.graphics.Color.Companion.DarkGray
+import androidx.compose.ui.graphics.Color.Companion.Green
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -97,11 +98,16 @@ fun GpsIconButton(
   ) {
     Row(
       modifier = Modifier.fillMaxWidth(),
-      horizontalArrangement = Arrangement.End
+      horizontalArrangement = Arrangement.Start
     ) {
-      IconButton(onClick = onIconClick) {
+      IconButton(
+        onClick = onIconClick
+      ) {
         Icon(
-          modifier = Modifier.padding(bottom = 100.dp, end = 20.dp),
+          modifier = Modifier
+            .padding(bottom = 10.dp, end = 10.dp)
+            .size(40.dp, 40.dp)
+            .background(color = Green),
           painter = painterResource(id = R.drawable.ic_gps_fixed),
           contentDescription = "Gps Icon image"
         )
@@ -115,8 +121,8 @@ fun DebugOverlay(
   cameraPositionState: CameraPositionState,
 ) {
   Column(
-    modifier = Modifier.fillMaxSize(),
-    verticalArrangement = Arrangement.Bottom,
+    modifier = Modifier.fillMaxWidth(),
+    verticalArrangement = Arrangement.Top,
   ) {
     val moving =
       if (cameraPositionState.isMoving) "moving" else "not moving"
